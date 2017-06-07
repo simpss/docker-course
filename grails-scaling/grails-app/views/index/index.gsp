@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
+    <title>Welcome You are the ${counter} visitor on ${uuid.toString()}</title>
 
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 </head>
@@ -53,7 +53,7 @@
 
     <div id="content" role="main">
         <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
+            <h1>Welcome You are the ${counter} visitor on ${uuid.toString()}</h1>
 
             <p>
                 Congratulations, you have successfully started your first Grails application! At the moment

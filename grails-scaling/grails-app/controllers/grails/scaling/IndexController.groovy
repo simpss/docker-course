@@ -3,9 +3,11 @@ package grails.scaling
 class IndexController {
 
     def uuidService;
+    def visitorService;
 
     def index() {
         UUID uuid = this.uuidService.getUuid();
-        render(view: "index", model: uuid);
+        this.visitorService.newVisitEvent();
+        render(view: "index", model: [uuid: uuid, counter: this.visitorService.getVisitCount()]);
     }
 }
