@@ -1,0 +1,1 @@
+docker build -t grails-scaling -f grails-scaling/docker/Dockerfile .
