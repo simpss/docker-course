@@ -22,8 +22,8 @@
 /*.war
 
 # plugin release files
-/*.zip
 /plugin.xml
+/*.zip
 
 # older plugin install locations
 /plugins
@@ -31,3 +31,5 @@
 
 # "temporary" build files
 /target
+
+*.idea
