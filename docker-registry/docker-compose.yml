@@ -1,0 +1,36 @@
+version: "3"
+# https://docs.docker.com/compose/compose-file/
+
+volumes:
+  registry:
+
+services:
+  registry:
+    restart: always
+    image: registry:2.6.1
+    ports:
+      - 5000:5000
+    environment:
+      REGISTRY_AUTH: "htpasswd"
+      REGISTRY_AUTH_HTPASSWD_REALM: "Registry Realm"
+      REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      REGISTRY_HTTP_TLS_CERTIFICATE: /certs/chain.pem
+      REGISTRY_HTTP_TLS_KEY: /certs/privkey.pem
+      REGISTRY_STORAGE_DELETE_ENABLED: "true"
+    volumes:
+      - registry:/var/lib/registry
+      - ./htpasswd:/auth/htpasswd
+      - ./ssl:/certs
+    networks:
+      - registry
+  apache:
+    image: registry-apache:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./ssl:/opt/ssl
+    networks:
+      - registry
+networks:
+  registry:
