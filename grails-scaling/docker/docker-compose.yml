@@ -9,6 +9,6 @@ services:
       restart_policy:
         condition: any
     networks:
-      - cloud
+      - sorry
 networks:
-  cloud:
+  sorry:
