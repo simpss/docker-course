@@ -1,6 +1,7 @@
 version: "3"
 # https://docs.docker.com/compose/compose-file/
-
+volumes:
+  my-logs:
 services:
   grails-scaling:
     image: grails-scaling
@@ -11,6 +12,7 @@ services:
     volumes:
       #"./host-path-relative-to-compose-file:/container-path"
       - "./../:/app"
+      - "my-logs:/var/log/tomcat8"
     ports:
     #host port:container port
       - "8080:8080"
@@ -22,6 +24,7 @@ services:
     ports:
       - "2000:8080"
     volumes:
+      - "my-logs:/var/log/tomcat8"
       - "/var/run/docker.sock:/var/run/docker.sock"
     deploy:
       replicas: 1
