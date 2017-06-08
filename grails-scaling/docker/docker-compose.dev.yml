@@ -9,8 +9,10 @@ services:
       restart_policy:
         condition: any
     volumes:
+      #"./host-path-relative-to-compose-file:/container-path"
       - "./../:/app"
     ports:
+    #host port:container port
       - "8080:8080"
     networks:
       - sorry
