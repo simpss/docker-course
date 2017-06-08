@@ -1,0 +1,1 @@
+gcloud compute ssh --project docker-test-170004 --zone europe-west1-d docker-manager-1
