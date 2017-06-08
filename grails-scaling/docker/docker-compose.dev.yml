@@ -1,0 +1,32 @@
+version: "3"
+# https://docs.docker.com/compose/compose-file/
+
+services:
+  grails-scaling:
+    image: grails-scaling
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+    volumes:
+      - "./../:/app"
+    ports:
+      - "8080:8080"
+    networks:
+      - sorry
+    command: ["grails", "run-app"]
+  visualizer:
+    image: manomarks/visualizer:latest
+    ports:
+      - "2000:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+    networks:
+      - sorry
+networks:
+  sorry:
