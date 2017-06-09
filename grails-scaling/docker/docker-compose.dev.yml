@@ -4,7 +4,7 @@ volumes:
   my-logs:
 services:
   grails-scaling:
-    image: grails-scaling
+    image: docker.sorryasaservice.com/test/grails-scaling:0.0.1
     deploy:
       replicas: 1
       restart_policy:

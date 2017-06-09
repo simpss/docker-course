@@ -1,0 +1,25 @@
+version: "3"
+# https://docs.docker.com/compose/compose-file/
+
+volumes:
+  mongo:
+
+services:
+  mongo:
+    image: docker.sorryasaservice.com/mongodb:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+      - DB_USER=test
+      - DB_PSWD=test
+      - DB_NAME=sorry_api
+    volumes:
+      - mongo:/data/db
+    networks:
+      - mongo
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+networks:
+  mongo:
