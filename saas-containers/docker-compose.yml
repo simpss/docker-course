@@ -21,6 +21,9 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
+  memcached:
+    image: memcached:1.4
+    command: ["memcached", "-m", "256"]
   es-master:
     image: sebp/elk:es235_l234_k454
     ports:
