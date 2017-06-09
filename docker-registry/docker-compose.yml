@@ -9,6 +9,7 @@ services:
     restart: always
     image: registry:2.6.1
     environment:
+      #to see how to generate a htpasswd file look here: https://docs.docker.com/registry/deploying/#native-basic-auth
       REGISTRY_AUTH: "htpasswd"
       REGISTRY_AUTH_HTPASSWD_REALM: "Registry Realm"
       REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
