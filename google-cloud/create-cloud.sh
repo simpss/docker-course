@@ -1,3 +1,3 @@
 gcloud deployment-manager deployments create docker \
---config https://raw.githubusercontent.com/simpss/docker-course/master/google-cloud/Docker.jinja \
+--config https://raw.githubusercontent.com/simpss/docker-course/master/google-cloud/Docker2.jinja \
 --properties managerCount:3,workerCount:1,zone:europe-west1-d
