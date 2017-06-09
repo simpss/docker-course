@@ -10,7 +10,7 @@
   {%- filter replace('\n', '","') -%}
     {%- filter replace('"', '\\"') -%}
       {%- filter replace('\\', '\\\\') -%}
-        {%- include 'startup.sh' -%}
+        {%- include 'https://raw.githubusercontent.com/simpss/docker-course/master/google-cloud/startup.sh' -%}
       {%- endfilter -%}
     {%- endfilter -%}
   {%- endfilter -%}
@@ -50,7 +50,7 @@ resources:
       items:
       - key: manager-script
         value: |
-          {% filter indent(10) %}{% set type='leader' %}{% include 'startup.sh' %}{% endfilter %}
+          {% filter indent(10) %}{% set type='leader' %}{% include 'https://raw.githubusercontent.com/simpss/docker-course/master/google-cloud/startup.sh' %}{% endfilter %}
       - key: startup-script
         value: |
           {% filter indent(10) %}{% include 'bootstrap.sh' %}{% endfilter %}
